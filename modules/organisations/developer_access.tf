@@ -1,26 +1,3 @@
-module "developer_role" {
-  for_each = var.environments
-  source         = "./developer-role//"
-  trusted_entity = "arn:aws:iam::$${aws_organizations_account.${each.value["name"]}.users.id}:root"
-
-  providers = {
-    aws = aws.staging
-  }
-}
-
-module "developer_group" {
-  for_each = var.environments
-  source     = "./developer-group//"
-  group_name = "DevelopersStaging"
-
-  assume_role_arns = [
-    "module.developer_role.${each.value["name"]}.role_arn"
-  ]
-
-}
-
-
-# single fire resources for main account
 
 resource "aws_iam_group" "self_managing" {
   name = "SelfManaging"
