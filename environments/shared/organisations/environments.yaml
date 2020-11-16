@@ -1,0 +1,9 @@
+development:
+  name: "development"
+  email: "terrorg.development@gmail.com"
+  role_name: "Admin"
+
+production: 
+  name: "production"
+  email: "terrorg.production@gmail.com"
+  role_name: "Admin"
