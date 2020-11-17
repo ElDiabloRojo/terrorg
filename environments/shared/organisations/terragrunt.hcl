@@ -16,6 +16,12 @@ generate "provider" {
   contents  = templatefile( "./templates/provider.tpl", { environments = keys(local.environments)})
 }
 
+generate "outputs" {
+  path      = "outputs.tf"
+  if_exists = "overwrite"
+  contents  = templatefile( "./templates/outputs.tpl", { environments = keys(local.environments)})
+}
+
 generate "developer_role" {
   path      = "developer_role.tf"
   if_exists = "overwrite"

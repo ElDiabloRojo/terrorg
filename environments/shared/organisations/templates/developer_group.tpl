@@ -5,7 +5,7 @@ locals {
 }
 
 module "developer_group_${i}" {
-  source     = "./developer-group//"
+  source     = "../developer-group//"
   group_name = "Developer$${local.${i}}"
 
   assume_role_arns = [
