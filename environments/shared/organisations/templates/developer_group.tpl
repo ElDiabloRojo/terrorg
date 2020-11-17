@@ -11,10 +11,6 @@ module "developer_group_${i}" {
   assume_role_arns = [
     module.developer_role_${i}.role_arn
   ]
-
-  providers = {
-    aws = aws.${i}
-  }
 }
 
 %{ endfor ~}
