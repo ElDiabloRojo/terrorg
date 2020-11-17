@@ -27,3 +27,19 @@ generate "developer_group" {
   if_exists = "overwrite"
   contents  = templatefile( "./templates/developer_group.tpl", { environments = keys(local.environments)})
 }
+
+remote_state {
+  backend = "s3"
+  generate = {
+    path      = "backend.tf"
+    if_exists = "overwrite"
+  }
+  config = {
+    bucket  = "solidghost-tfstate"
+    key     = "${path_relative_to_include()}/terraform.tfstate"
+    region  = "eu-central-1"
+    encrypt = true
+    // TODO
+    // dynamodb_table = "my-lock-table"
+  }
+}

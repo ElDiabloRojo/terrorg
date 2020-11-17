@@ -1,9 +1,9 @@
 development:
   name: "development"
-  email: "terrorg.development@gmail.com"
+  email: "solidghost.dev@aol.com"
   role_name: "Admin"
 
 production: 
   name: "production"
-  email: "terrorg.production@gmail.com"
+  email: "solidghost.prod@aol.com"
   role_name: "Admin"
